@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:movies_app/screens/movie_screen.dart';
 
 class IronmanSection extends StatelessWidget {
 List names=[
@@ -36,7 +37,9 @@ List images=[
           items: [
            for(int i=0;i<images.length;i++)
             InkWell(
-              onTap: (){},
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MovieScreen(),));
+              },
               child: Container(
                 margin: EdgeInsets.all(6),
                 child: Column(

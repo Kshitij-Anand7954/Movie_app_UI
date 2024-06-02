@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:movies_app/screens/movie_screen.dart';
 import 'package:movies_app/widgets/ironman_section.dart';
 import 'package:movies_app/widgets/movie_section.dart';
 import 'package:movies_app/widgets/spiderman_section.dart';
@@ -54,11 +55,16 @@ _handelTabSection(){
             viewportFraction: 0.8,
           ),
           items: [
-            Container(
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),
-              image: DecorationImage(image: AssetImage("images/deadpool.jpg"),
-              fit: BoxFit.cover,
-              )
+            InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MovieScreen(),));
+              },
+              child: Container(
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),
+                image: DecorationImage(image: AssetImage("images/deadpool.jpg"),
+                fit: BoxFit.cover,
+                )
+                ),
               ),
             ),
             Container(
