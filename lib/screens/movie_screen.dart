@@ -49,7 +49,7 @@ class MovieScreen extends StatelessWidget {
                           onTap: () {},
                           child: Icon(
                             Icons.favorite,
-                            color: Colors.amber,
+                            color: Colors.amber.withOpacity(0.8),
                             size: 35,
                           ),
                         )
@@ -132,55 +132,43 @@ class MovieScreen extends StatelessWidget {
                           ),
                         ),
                         Container(
+                          padding: EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
+                            color: Color(0xFF292B37),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.amber.withOpacity(0.5),
+                                color: Colors.white.withOpacity(0.5),
                                 spreadRadius: 1,
-                                blurRadius: 8,
+                                blurRadius: 6,
                               ),
                             ],
                           ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image.asset(
-                              "images/deadpool3.jpg",
-                              height: 250,
-                              width: 180,
-                            ),
+                          child: Icon(
+                            Icons.favorite_border,
+                            size: 35,
+                            color: Colors.white,
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(right: 50, top: 70),
-                          height: 80,
-                          width: 80,
+                          padding: EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(40),
-                            color: Colors.amber.withOpacity(0.8),
+                            color: Color(0xFF292B37),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.amber.withOpacity(0.5),
-                                spreadRadius: 2,
-                                blurRadius: 8,
+                                color: Colors.white.withOpacity(0.5),
+                                spreadRadius: 1,
+                                blurRadius: 6,
                               ),
                             ],
                           ),
                           child: Icon(
                             Icons.download,
                             color: Colors.white,
-                            size: 60,
+                            size: 35,
                           ),
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 30),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 40),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
+                        ),
                         Container(
                           padding: EdgeInsets.all(10),
                           decoration: BoxDecoration(
@@ -196,84 +184,96 @@ class MovieScreen extends StatelessWidget {
                           ),
                           child: Icon(
                             Icons.share,
-                            size: 35,
                             color: Colors.white,
+                            size: 35,
                           ),
-                        ),
+                        )
                       ],
                     ),
                   ),
-                  Padding(padding: EdgeInsets.symmetric(vertical: 20,
-                  horizontal: 10
+                  SizedBox(height: 30),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 40),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [],
+                    ),
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [Text("Deadpool & Wolverine",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 28,
-                      fontWeight: FontWeight.w500,
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Deadpool & Wolverine",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 28,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(height: 15),
+                        Text(
+                          "Wolverine is recovering from his injuries when he crosses paths with the loudmouth, Deadpool. They team up to defeat a common enemy.",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        )
+                      ],
                     ),
-                    ),
-                    SizedBox(height: 15),
-                    Text("Wolverine is recovering from his injuries when he crosses paths with the loudmouth, Deadpool. They team up to defeat a common enemy.",
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-
-                    ),
-                    )
-                    ],
-                  ),
                   ),
                   SizedBox(height: 10),
                   Column(
                     children: [
-                      Padding(padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Recommended",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          ),
-                          Text("See All",
-                          style: TextStyle(
-                            color: Colors.amber.withOpacity(0.8),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          ),
-                        ],
-                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Recommended",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              "See All",
+                              style: TextStyle(
+                                color: Colors.amber.withOpacity(0.8),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(height: 15),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
-                         children: [
-                           for(int i=0;i<recommendedMovies.length;i++)
-                           Padding(padding: EdgeInsets.only(left: 10),
-                           child: ClipRRect(
-                            borderRadius:BorderRadius.circular(10),
-                            child: Image.asset(recommendedMovies[i],
-                            height: 100,
-                              width: 150,
-                              fit: BoxFit.cover,
-                            ),
-
-                           ),)
-                         ],
+                          children: [
+                            for (int i = 0; i < recommendedMovies.length; i++)
+                              Padding(
+                                padding: EdgeInsets.only(left: 10),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.asset(
+                                    recommendedMovies[i],
+                                    height: 100,
+                                    width: 150,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              )
+                          ],
                         ),
                       )
-
                     ],
                   )
-                  
                 ],
               )),
             )
